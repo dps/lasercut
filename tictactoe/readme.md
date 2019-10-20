@@ -8,7 +8,7 @@
 python board.py
 ```
 
-This produces 3 files:
+This produces 3 files, which are also checked in to this repo:
 
  - *board_base.svg* - cut this out of dark wood, e.g. Cherry Plywood
  - *board_layer1.svg* - cut this out of same material as base
