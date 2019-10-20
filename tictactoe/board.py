@@ -39,21 +39,23 @@ def board():
     #rect(0,0,1500,1500)
     desired_os = 0
     desired_xs = 5
-    for row in range(3):
-        for col in range(3):
-            # rect(MARGIN_PX * (row + 1) + row * (PLACE_WIDTH_PX),
-            #      MARGIN_PX * (col + 1) + col * (PLACE_WIDTH_PX),
-            #      PLACE_WIDTH_PX,
-            #      PLACE_WIDTH_PX
-            #      )
-            if desired_os > 0:
-                o(MARGIN_PX * (row + 1) + row * (PLACE_WIDTH_PX) + PLACE_WIDTH_PX / 2,
-                MARGIN_PX * (col + 1) + col * (PLACE_WIDTH_PX) + PLACE_WIDTH_PX / 2)
-                desired_os = desired_os - 1
-            elif desired_xs > 0:
-                x(MARGIN_PX * (row + 1) + row * (PLACE_WIDTH_PX) + PLACE_WIDTH_PX / 2,
-                MARGIN_PX * (col + 1) + col * (PLACE_WIDTH_PX) + PLACE_WIDTH_PX / 2)
-                desired_xs = desired_xs - 1
+    # for row in range(3):
+    #     for col in range(3):
+    #         # rect(MARGIN_PX * (row + 1) + row * (PLACE_WIDTH_PX),
+    #         #      MARGIN_PX * (col + 1) + col * (PLACE_WIDTH_PX),
+    #         #      PLACE_WIDTH_PX,
+    #         #      PLACE_WIDTH_PX
+    #         #      )
+    #         if desired_os > 0:
+    #             o(MARGIN_PX * (row + 1) + row * (PLACE_WIDTH_PX) + PLACE_WIDTH_PX / 2,
+    #             MARGIN_PX * (col + 1) + col * (PLACE_WIDTH_PX) + PLACE_WIDTH_PX / 2)
+    #             desired_os = desired_os - 1
+    #         elif desired_xs > 0:
+    #             x(MARGIN_PX * (row + 1) + row * (PLACE_WIDTH_PX) + PLACE_WIDTH_PX / 2,
+    #             MARGIN_PX * (col + 1) + col * (PLACE_WIDTH_PX) + PLACE_WIDTH_PX / 2)
+    #             desired_xs = desired_xs - 1
+    for i in range(1,6):
+        x(i*PLACE_WIDTH_PX/1.5, ((i%2)+1.5)*MARGIN_PX*5)
     print FOOTER
 
 if __name__ == "__main__":
