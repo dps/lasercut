@@ -1,7 +1,7 @@
 HEADER = """<?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="15.0cm" height="15.0cm" viewBox="0 0 1500 1500"
+<svg width="20.0cm" height="15.0cm" viewBox="0 0 2000 1500"
      xmlns="http://www.w3.org/2000/svg" version="1.1">
 """
 
@@ -15,6 +15,7 @@ WIDTH_PX = 1500
 MARGIN_PX = MARGIN_CM * PX_PER_CM
 PLACE_WIDTH_PX = (WIDTH_PX - 4 * MARGIN_PX) / 3
 TOTAL_OS = 0
+FILL_BOARD_WITH_XS = True
 
 
 def rect(file, x, y, width, height):
@@ -43,7 +44,7 @@ def board():
     out.write(HEADER)
     rect(out, 0, 0, 1500, 1500)
     
-    desired_os = 0
+    desired_os = 5
     desired_xs = 5
     for row in range(3):
         for col in range(3):
@@ -56,17 +57,15 @@ def board():
                 o(out, MARGIN_PX * (row + 1) + row * (PLACE_WIDTH_PX) + PLACE_WIDTH_PX / 2,
                 MARGIN_PX * (col + 1) + col * (PLACE_WIDTH_PX) + PLACE_WIDTH_PX / 2)
                 desired_os = desired_os - 1
-            elif desired_xs > 0:
+            elif FILL_BOARD_WITH_XS:
                 x(out, MARGIN_PX * (row + 1) + row * (PLACE_WIDTH_PX) + PLACE_WIDTH_PX / 2,
                 MARGIN_PX * (col + 1) + col * (PLACE_WIDTH_PX) + PLACE_WIDTH_PX / 2)
-                desired_xs = desired_xs - 1
     out.write(FOOTER)
     out.close()
 
     out = file("x_pieces.svg", "w")
     out.write(HEADER)
 
-    
     # Compact Xes for different colored material
     for i in range(1, desired_xs + 1):
         x(out, i*PLACE_WIDTH_PX/1.5, ((i%2)+1.5)*MARGIN_PX*5)
